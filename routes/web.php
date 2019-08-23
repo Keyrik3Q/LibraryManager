@@ -163,7 +163,31 @@ Route::group(['middleware'=>'auth'], function () {
             return view('admin.vectormap');
         }
     )->name('vectormap');
+    Route::group(['prefix'=>'module'], function(){
+        Route::get('index','QuanTriHeThong\Module\QlmodulesController@index')->name('QuanTriHeThong.Module.Module.index');
+        Route::get('/del/{id}', 'QuanTriHeThong\Module\QlmodulesController@destroy')->name('QuanTriHeThong.Module.Module.destroy');
+        Route::get('/edit/{id}', 'QuanTriHeThong\Module\QlmodulesController@edit')->name('QuanTriHeThong.Module.Module.edit');
+        Route::post('/update/{id}', 'QuanTriHeThong\Module\QlmodulesController@update')->name('QuanTriHeThong.Module.Module.update');
+        Route::get('/create', 'QuanTriHeThong\Module\QlmodulesController@create')->name('QuanTriHeThong.Module.Module.create');
+        Route::post('/add', 'QuanTriHeThong\Module\QlmodulesController@store')->name('QuanTriHeThong.Module.Module.add');
+    });
     
+    Route::group(['prefix'=>'controller'], function(){
+        Route::get('index','QuanTriHeThong\Controller\QlControllerController@index')->name('QuanTriHeThong.controller.controller.index');
+        Route::get('/create', 'QuanTriHeThong\Controller\QlControllerController@create')->name('QuanTriHeThong.controller.controller.reate');
+        Route::post('/add', 'QuanTriHeThong\Controller\QlControllerController@store')->name('QuanTriHeThong.controller.controller.add');
+        Route::get('/del/{id}', 'QuanTriHeThong\Controller\QlControllerController@destroy')->name('QuanTriHeThong.controller.controller.destroy');
+        Route::get('/edit/{id}', 'QuanTriHeThong\Controller\QlControllerController@edit')->name('QuanTriHeThong.controller.controller.edit');
+        Route::post('/update/{id}', 'QuanTriHeThong\Controller\QlControllerController@update')->name('QuanTriHeThong.controller.controller.update');
+    });
+    Route::group(['prefix'=>'action'], function(){
+        Route::get('index','QuanTriHeThong\Action\QlactionController@index')->name('QuanTriHeThong.Action.Action.index');
+        Route::get('/create', 'QuanTriHeThong\Action\QlactionController@create')->name('QuanTriHeThong.Action.Action.create');
+        Route::post('/add', 'QuanTriHeThong\Action\QlactionController@store')->name('QuanTriHeThong.Action.Action.add');
+        Route::get('/del/{id}', 'QuanTriHeThong\Action\QlactionController@destroy')->name('QuanTriHeThong.Action.Action.destroy');
+        Route::get('/edit/{id}', 'QuanTriHeThong\Action\QlactionController@edit')->name('QuanTriHeThong.Action.Action.edit');
+        Route::post('/update/{id}', 'QuanTriHeThong\Action\QlactionController@update')->name('QuanTriHeThong.Action.Action.update');
+    });
     }
 );
 

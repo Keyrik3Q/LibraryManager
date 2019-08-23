@@ -73,5 +73,8 @@
                 <li><i class="menu-icon fa fa-paper-plane"></i><a href="{{route('password.request')}}">Forget Pass</a></li>
             </ul>
         </li>
+        <li>
+            <a href="module"><i class="menu-icon fa fa-th"></i> Module</a>
+        </li>
     </ul>
 </div>
